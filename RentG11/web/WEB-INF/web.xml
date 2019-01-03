@@ -8,9 +8,25 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>servlets.Login</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>Reserva</servlet-name>
         <servlet-class>servlets.Reserva</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>busquedaCliente</servlet-name>
+        <servlet-class>servlets.BusquedaCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>busquedaRSMatricula</servlet-name>
+        <servlet-class>servlets.BusquedaRSEmail</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BusquedaRSMatricula</servlet-name>
+        <servlet-class>servlets.BusquedaRSMatricula</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BusquedaRSFecha</servlet-name>
+        <servlet-class>servlets.BusquedaRSFecha</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Registro</servlet-name>
@@ -23,6 +39,22 @@
     <servlet-mapping>
         <servlet-name>Reserva</servlet-name>
         <url-pattern>/Reserva</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>busquedaCliente</servlet-name>
+        <url-pattern>/busquedaCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>busquedaRSMatricula</servlet-name>
+        <url-pattern>/busquedaRSMatricula</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BusquedaRSMatricula</servlet-name>
+        <url-pattern>/BusquedaRSMatricula</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BusquedaRSFecha</servlet-name>
+        <url-pattern>/BusquedaRSFecha</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
