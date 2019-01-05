@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Date;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -48,7 +49,7 @@ public class BusquedaRSFecha extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         HttpSession s = req.getSession(true);
-        String fechaR = (String) req.getParameter("matr");
+        String fechaR = (String)req.getParameter("fechaRS");
         s.setAttribute("fechaReserva", fechaR);
        
         boolean existe = true;
