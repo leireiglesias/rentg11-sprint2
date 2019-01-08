@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>Búsqueda de reservas</title>
+        <title>Cancelación</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estilo.css">
@@ -11,26 +11,26 @@
     <body>
         <div>
             <nav id = "nav">
-                <a href="indexCliente.jsp">Inicio</a>
+                <a href="indexCliente.jsp">Volver</a>
             </nav>
         </div>
         <section id="banner">
             <div class="inner">
                 <header>
-                    <h1>Realiza una búsqueda</h1>
+                    <h1>Cancelación de reserva</h1>
                 </header>
 
                 <div class="flex ">
 
                     <div>
-                        <span class="icon fa-car"></span>
-                        <form name="frmBusqCliente" id="frmBusqCliente" method="get" action="reservasCliente.jsp">
-                            <p>Fecha:
+                        <form name="frmCancelar" id="frmCancelar" method="post" action="Cancelar">
+                            <p>Código de la reserva a cancelar:
                             <p></p>
-                            <input type="date" name="fechaBusq" id="fechaBusq" required=""/>
-                            <p><button type="submit" class="button" id="busqCliente">Buscar</button></p>    
+                            <input type="text" name="canCod" id="canDod" required=""/>   
+                            <p><button type="submit" class="button" id="ent">Cancelar reserva</button></p>    
                         </form>
                     </div>
-                    </section>                   
+                    </section>
                     </body>
                     </html>
+

@@ -13,20 +13,16 @@
         <servlet-class>servlets.Reserva</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>busquedaCliente</servlet-name>
-        <servlet-class>servlets.BusquedaCliente</servlet-class>
+        <servlet-name>Devolucion</servlet-name>
+        <servlet-class>servlets.Devolucion</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>busquedaRSMatricula</servlet-name>
-        <servlet-class>servlets.BusquedaRSEmail</servlet-class>
+        <servlet-name>Entrega</servlet-name>
+        <servlet-class>servlets.Entrega</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>BusquedaRSMatricula</servlet-name>
-        <servlet-class>servlets.BusquedaRSMatricula</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>BusquedaRSFecha</servlet-name>
-        <servlet-class>servlets.BusquedaRSFecha</servlet-class>
+     <servlet>
+        <servlet-name>Cancelar</servlet-name>
+        <servlet-class>servlets.Cancelar</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Registro</servlet-name>
@@ -41,21 +37,18 @@
         <url-pattern>/Reserva</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>busquedaCliente</servlet-name>
-        <url-pattern>/busquedaCliente</url-pattern>
+        <servlet-name>Devolucion</servlet-name>
+        <url-pattern>/Devolucion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>busquedaRSMatricula</servlet-name>
-        <url-pattern>/busquedaRSMatricula</url-pattern>
+        <servlet-name>Entrega</servlet-name>
+        <url-pattern>/Entrega</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BusquedaRSMatricula</servlet-name>
-        <url-pattern>/BusquedaRSMatricula</url-pattern>
+     <servlet-mapping>
+        <servlet-name>Cancelar</servlet-name>
+        <url-pattern>/Cancelar</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BusquedaRSFecha</servlet-name>
-        <url-pattern>/BusquedaRSFecha</url-pattern>
-    </servlet-mapping>
+
     <session-config>
         <session-timeout>
             30

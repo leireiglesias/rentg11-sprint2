@@ -8,7 +8,7 @@
 
 <html>
     <head>
-        <title>RentG</title>
+        <title>Reservas por matrícula</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estilo.css">
@@ -16,18 +16,16 @@
     <body>
 
         <!-- Cabecera -->
-        <header id="header">
+        <header>
             <div class="inner">
-                <a href="index.jsp" class="logo"><strong>RentG</strong>, ¡alquiler de coches!</a>
-                <nav id="nav">
-                    <a href="indexRS.jsp">Volver</a>
-                </nav>
+                <a href="busquedaRS.html">Volver</a>
             </div>
         </header>
-        
-        <h1>Reservas</h1>
+
+        <p></p>
+        <h1>Reservas del coche</h1>
         <table border=1>
-            <tr><td><b>Identificador</b></td><td><b>Matricula</b></td><td><b>Email</b></td>
+            <tr><td><b>Identificador</b></td><td><b>Matrícula</b></td><td><b>Email</b></td>
                 <td><b>Recogida Teorica</b></td><td><b>Entrega Teorica</b></td><td><b>Entrega Real</b></td><td><b>Recogida Real</b>
                 </td><td><b>Estado</b></td></tr>
                 <%!
@@ -43,22 +41,22 @@
                 %>  
                 <%
                     try {
-                        String matriculaCoche = (String) session.getAttribute("matriculaCliente");
+                        String m = request.getParameter("matr");
                         String matricula, email, estado;
                         int codReserva;
                         Date ETeorica, EReal, RTeorica, RReal;
                         set = con.createStatement();
-                        rs = set.executeQuery("SELECT * FROM Reserva where CocheMatricula =" + matriculaCoche);
+                        rs = set.executeQuery("SELECT * FROM reserva where CocheMatricula= '" + m +"'");
                         while (rs.next()) {
                             codReserva = rs.getInt("CodReserva");
                             matricula = rs.getString("CocheMatricula");
                             email = rs.getString("ClienteEmail");
                             RTeorica = rs.getDate("RecogidaTeorica");
                             ETeorica = rs.getDate("EntregaTeorica");
-                            EReal = rs.getDate("EntegaReal");
+                            EReal = rs.getDate("EntregaReal");
                             RReal = rs.getDate("RecogidaReal");
                             estado = rs.getString("Estado");
-                %>                         
+                %>                      
             <tr><td><%=codReserva%></td>
                 <td><%=matricula%></td>
                 <td><%=email%></td>
@@ -73,7 +71,7 @@
                         set.close();
                         //con.close();
                     } catch (Exception ex) {
-                        System.out.println("Error en acceso al mostrar reservas por matrícula" + ex);
+                        System.out.println("Error en acceso al mostrar reservas" + ex);
                     }
                 %>
         </table>
@@ -83,10 +81,9 @@
             <div class="inner">
                 <section class="seccionpie">
                     <address>Vitoria, País Vasco</address>
-                    <small>&copy; Derechos Reservados 2018</small>
+                    <small>&copy; Todos los Derechos Reservados 2019</small>
                 </section>
             </div>
         </footer>
     </body>
 </html>
-  

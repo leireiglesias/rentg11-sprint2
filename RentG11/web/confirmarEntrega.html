@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Entrega</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/estilo.css">
+        <script src="js/reserva.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div>
+            <nav id = "nav">
+                <a href="indexRS.jsp">Volver</a>
+            </nav>
+        </div>
+        <section id="banner">
+            <div class="inner">
+                <header>
+                    <h1>Confirmación de entrega</h1>
+                </header>
+
+                <div class="flex ">
+
+                    <div>
+                        <form name="frmEntrega" id="frmEntrega" method="post" action="Entrega">
+                            <p>Código de la reserva a confirmar:
+                            <p></p>
+                            <input type="text" name="entCod" id="entDod" required=""/>
+                            <p>Fecha de la entrega:
+                            <p></p>
+                            <input type="date" name="entFec" id="entFec" required=""/>
+                            <p>Hora de la entrega:
+                            <p></p>
+                            <input type="time" name="entHor" id="entHor" required=""/>
+                            <p><button type="submit" class="button" id="ent">Confirmar</button></p>    
+                        </form>
+                    </div>
+                    </section>
+                    </body>
+                    </html>
+

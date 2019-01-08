@@ -7,6 +7,7 @@ package servlets;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.servlet.ServletConfig;
@@ -42,12 +43,20 @@ public class Reserva extends HttpServlet{
         String horaI = (String) req.getParameter("horaI");
         String fechaF = (String) req.getParameter("fechaF");
         String horaF = (String) req.getParameter("horaF");
-        String nombre= (String) s.getAttribute("nombre"); 
+        String email= (String) s.getAttribute("email"); 
         String recogida = fechaI+" "+horaI;
         String entrega = fechaF+" "+horaF;
         try {
             set = con.createStatement();
-            set.executeUpdate("INSERT INTO reserva(CocheMatricula,ClienteEmail,RecogidaTeorica,EntregaTeorica) VALUES ('" + coche + "','" + nombre + "','" + recogida + "','" + entrega + "')");
+            String insertar = "INSERT INTO reserva(CodReserva, CocheMatricula,ClienteEmail,RecogidaTeorica,EntregaTeorica, Estado) VALUES (?,?,?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(insertar);
+            ps.setString(1, null);
+            ps.setString(2, coche);
+            ps.setString(3, email);
+            ps.setString(4, recogida);
+            ps.setString(5, entrega);
+            ps.setString(6, "PENDIENTE");
+            ps.executeUpdate();           
 
             set.close();
         } catch (SQLException ex2) {

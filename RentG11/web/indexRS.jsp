@@ -32,6 +32,8 @@
                         ;                                            
                     %>
                     <a href="busquedaRS.html">Búsqueda</a>
+                    <a href="confirmarDevolucion.html">Confirmar devolución</a>
+                    <a href="confirmarEntrega.html">Confirmar entrega</a>
                     <a href="logout.jsp">Logout</a>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
@@ -63,7 +65,7 @@
                             <div class="inner">
                                 <section class="seccionpie">
                                     <address>Vitoria, País Vasco</address>
-                                    <small>&copy; Derechos Reservados 2018</small>
+                                    <small>&copy; Todos los Derechos Reservados 2019</small>
                                 </section>
                             </div>
                         </footer>

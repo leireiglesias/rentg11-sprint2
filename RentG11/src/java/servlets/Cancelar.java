@@ -8,6 +8,7 @@ package servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,7 +25,7 @@ import utils.BD;
  *
  * @author CASA
  */
-public class Registro extends HttpServlet {
+public class Cancelar extends HttpServlet {
 
     private Connection con;
     private Statement set;
@@ -41,29 +42,26 @@ public class Registro extends HttpServlet {
         // Obtener la sesión
         HttpSession s = req.getSession(true);
 
-        String email = (String) req.getParameter("email");
-        String nombre = (String) req.getParameter("name");
-        String DNI = (String) req.getParameter("DNI");
-        String telefono = (String) req.getParameter("tfn");
-        String contrasena = (String) req.getParameter("txtPassword");
-        String foto = (String) req.getParameter("archivos");
-        s.setAttribute("nombre", nombre);
-        s.setAttribute("email", email);
-        s.setAttribute("fotoCliente", foto);
+        String codigo = (String) req.getParameter("canCod");
+        String email= (String) s.getAttribute("email"); 
 
         try {
-            set = con.createStatement();
-            set.executeUpdate("INSERT INTO cliente VALUES ('" + email + "','" + nombre + "','" + DNI + "','" + telefono + "','" + contrasena + "','" + foto + "')");
-
-            set.close();
-        } catch (SQLException ex2) {
-            System.out.println("No inserta el usuario en Cliente." + ex2);
-        }
-        if (!"RS1@rentG.com".equals(email) || !"RS2@rentG.com".equals(email) || !"RS3@rentG.com".equals(email)) {
-            req.getRequestDispatcher("indexCliente.jsp").forward(req, res);
-        }
-        else{
-            req.getRequestDispatcher("indexRS.jsp").forward(req, res);
+            boolean valido = false;
+            PreparedStatement ps = con.prepareStatement("select * from reserva where CodReserva=? and ClienteEmail=?");
+            ps.setString(1, codigo);
+            ps.setString(2, email);
+            ResultSet rs = ps.executeQuery();
+            valido = rs.next();
+            if (valido && rs.getString("Estado").equals("PENDIENTE")) {
+                set = con.createStatement();
+                set.executeUpdate("UPDATE reserva SET Estado='CANCELADO' where CodReserva=" + codigo);
+                               
+                set.close();
+                
+                req.getRequestDispatcher("indexCliente.jsp").forward(req, res);
+            }
+        } catch (SQLException ex) {
+            System.out.println("No es posible realizar el cambio de estado." + ex);
         }
     }
 
@@ -77,3 +75,4 @@ public class Registro extends HttpServlet {
     }
 
 }
+

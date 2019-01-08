@@ -104,7 +104,7 @@
                         <div class="inner">
                             <section class="seccionpie">
                                 <address>Vitoria, País Vasco</address>
-                                <small>&copy; Derechos Reservados 2018</small>
+                                <small>&copy; Todos los Derechos Reservados 2019</small>
                             </section>
                         </div>
                     </footer>
