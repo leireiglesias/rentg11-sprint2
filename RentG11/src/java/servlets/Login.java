@@ -63,9 +63,11 @@ public class Login extends HttpServlet {
                     req.getRequestDispatcher("indexCliente.jsp").forward(req, res);
                 }
                 rs.close();
+                req.getRequestDispatcher("error.html").forward(req, res);
                 
             } catch (SQLException ex1) {
                 System.out.println("Email o contraseña incorrectos" + ex1);
+                req.getRequestDispatcher("error.html").forward(req, res);
             }
         }
     }

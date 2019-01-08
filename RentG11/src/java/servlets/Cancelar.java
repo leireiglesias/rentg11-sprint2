@@ -60,6 +60,7 @@ public class Cancelar extends HttpServlet {
                 
                 req.getRequestDispatcher("indexCliente.jsp").forward(req, res);
             }
+            req.getRequestDispatcher("error.html").forward(req, res);
         } catch (SQLException ex) {
             System.out.println("No es posible realizar el cambio de estado." + ex);
         }

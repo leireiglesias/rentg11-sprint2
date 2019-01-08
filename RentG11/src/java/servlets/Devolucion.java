@@ -66,6 +66,7 @@ public class Devolucion extends HttpServlet {
 
                 req.getRequestDispatcher("indexRS.jsp").forward(req, res);
             }
+            req.getRequestDispatcher("error.html").forward(req, res);
         } catch (SQLException ex) {
             System.out.println("No es posible realizar el cambio de estado." + ex);
         }
