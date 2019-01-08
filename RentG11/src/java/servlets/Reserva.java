@@ -57,6 +57,8 @@ public class Reserva extends HttpServlet{
             ps.setString(5, entrega);
             ps.setString(6, "PENDIENTE");
             ps.executeUpdate();           
+            
+            req.getRequestDispatcher("indexCliente.jsp").forward(req, res);
 
             set.close();
         } catch (SQLException ex2) {
